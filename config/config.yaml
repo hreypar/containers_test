@@ -1,0 +1,5 @@
+# config
+#
+buffy_data:
+    api_endpoint: "https://buffy-angel-api.onrender.com/api/buffy"
+

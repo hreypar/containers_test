@@ -1,21 +1,45 @@
-# Snakemake workflow: `<name>`
+# Snakemake workflow: `containers_test`
 
 [![Snakemake](https://img.shields.io/badge/snakemake-≥6.3.0-brightgreen.svg)](https://snakemake.github.io)
-[![GitHub actions status](https://github.com/<owner>/<repo>/workflows/Tests/badge.svg?branch=main)](https://github.com/<owner>/<repo>/actions?query=branch%3Amain+workflow%3ATests)
 
+A Snakemake workflow for analyzing data from the Buffy the Vampire Slayer and Angel series using the [btvs-angel-api](https://github.com/Thatskat/btvs-angel-api).
 
-A Snakemake workflow for `<description>`
+## Overview
 
+The main goal is to learn how to use containers for specific rules in a snakemake workflow (see [here](https://snakemake.readthedocs.io/en/stable/snakefiles/deployment.html#running-jobs-in-containers))
+
+This workflow analyzes data from the Buffy the Vampire Slayer series, including episode information, cast details, and other relevant data, using the btvs-angel-api. It performs data fetching, processing, sentiment analysis, and generates visualizations for insights into the shows' content.
+
+## Data Source
+
+The data for this analysis was obtained from the [btvs-angel-api](https://github.com/Thatskat/btvs-angel-api) repository.
 
 ## Usage
 
-The usage of this workflow is described in the [Snakemake Workflow Catalog](https://snakemake.github.io/snakemake-workflow-catalog/?usage=<owner>%2F<repo>).
+The usage of this workflow is described in the [Snakemake Workflow Catalog](https://snakemake.github.io/snakemake-workflow-catalog/?usage=<owner>%2Fbtvs-angel-analysis>).
 
-If you use this workflow in a paper, don't forget to give credits to the authors by citing the URL of this (original) <repo>sitory and its DOI (see above).
+## Workflow Steps
 
-# TODO
+1. **Fetch Data**: The workflow fetches data from the btvs-angel-api using a specified API endpoint.
+2. **Process and Analyze Data**: Fetched data is processed, including sentiment analysis to gain insights into the shows' content.
+3. **Generate Visualizations**: Visualizations such as sentiment analysis plots and character interaction networks are created for analysis.
 
-* Replace `<owner>` and `<repo>` everywhere in the template (also under .github/workflows) with the correct `<repo>` name and owning user or organization.
-* Replace `<name>` with the workflow name (can be the same as `<repo>`).
-* Replace `<description>` with a description of what the workflow does.
-* The workflow will occur in the snakemake-workflow-catalog once it has been made public. Then the link under "Usage" will point to the usage instructions if `<owner>` and `<repo>` were correctly set.
+## Prerequisites
+
+- [Snakemake](https://snakemake.readthedocs.io/en/stable/getting_started/installation.html)
+- [Conda](https://conda.io/projects/conda/en/latest/user-guide/install/index.html) (for environment management)
+
+## Installation
+
+Clone the repository:
+
+```bash
+git clone git@github.com:hreypar/containers_test.git
+cd containers_test
+```
+
+Run the workflow
+```bash
+conda activate snakemake
+snakemake --cores <num_cores> --use-conda
+```

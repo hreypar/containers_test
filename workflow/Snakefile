@@ -15,6 +15,6 @@ include: "rules/visualize_data.smk"
 
 rule all:
     input:
-        "results/visualizations/sentiment_analysis_plot.png",
-        "results/visualizations/character_interaction_network.png"
+        "results/visualizations/sentiment_analysis_plot.png"
+#        "results/visualizations/character_interaction_network.png"
 

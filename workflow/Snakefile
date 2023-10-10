@@ -1,4 +1,20 @@
+#!/usr/bin/env python
+# -*- coding: utf-8 -*-
+
 # Main entrypoint of the workflow. 
 # Please follow the best practices: 
 # https://snakemake.readthedocs.io/en/stable/snakefiles/best_practices.html,
-# in particular regarding the standardized folder structure mentioned there. 
+# in particular regarding the standardized folder structure mentioned there.
+#
+
+configfile: "config/config.yaml"
+
+include: "rules/data_retrieval.smk"
+include: "rules/analyze_data.smk"
+include: "rules/visualize_data.smk"
+
+rule all:
+    input:
+        "results/visualizations/sentiment_analysis_plot.png",
+        "results/visualizations/character_interaction_network.png"
+

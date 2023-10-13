@@ -12,9 +12,11 @@ configfile: "config/config.yaml"
 include: "rules/data_retrieval.smk"
 include: "rules/analyze_data.smk"
 include: "rules/visualize_data.smk"
+include: "rules/plotly_visualizations.smk"
 
 rule all:
     input:
-        "results/visualizations/sentiment_analysis_plot.png"
+        "results/visualizations/sentiment_analysis_plot.png",
+        rules.generate_plotly_visualizations.output
 #        "results/visualizations/character_interaction_network.png"
 
